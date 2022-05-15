@@ -64,9 +64,7 @@ namespace MotorSystemsApp.Data
             PasswordHasher<ApplicationUser> ph = new PasswordHasher<ApplicationUser>();
             admin.PasswordHash = ph.HashPassword(admin, "admin");
 
-            modelBuilder.Entity<ApplicationUser>().HasData(
-                admin
-             );
+            modelBuilder.Entity<ApplicationUser>().HasData(admin);
 
             modelBuilder.Entity<Worker>().HasData(
                 new Worker
@@ -80,10 +78,10 @@ namespace MotorSystemsApp.Data
             ApplicationUser worker = new ApplicationUser
             {
                 Id = "2",
-                UserName = "worker",
-                Email = "worker@worker.com",
-                NormalizedEmail = "worker@worker.com".ToUpper(),
-                NormalizedUserName = "worker".ToUpper(),
+                UserName = "worker1",
+                Email = "worker1@worker1.com",
+                NormalizedEmail = "worker1@worker1.com".ToUpper(),
+                NormalizedUserName = "worker1".ToUpper(),
                 TwoFactorEnabled = false,
                 EmailConfirmed = true,
                 PhoneNumber = "123456789",
@@ -96,7 +94,7 @@ namespace MotorSystemsApp.Data
                 Zip = "123"
             };
 
-            worker.PasswordHash = ph.HashPassword(worker, "worker");
+            worker.PasswordHash = ph.HashPassword(worker, "worker1");
 
             modelBuilder.Entity<ApplicationUser>().HasData(worker);
 
@@ -105,9 +103,33 @@ namespace MotorSystemsApp.Data
                 {
                     Id = "2",
                     IsAdmin = false,
-                    Username = "worker"
+                    Username = "worker1"
                 }
              );
+
+            ApplicationUser client = new ApplicationUser
+            {
+                Id = "3",
+                UserName = "client1",
+                Email = "client1@client1.com",
+                NormalizedEmail = "client1@client1.com".ToUpper(),
+                NormalizedUserName = "client1".ToUpper(),
+                TwoFactorEnabled = false,
+                EmailConfirmed = true,
+                PhoneNumber = "123456789",
+                PhoneNumberConfirmed = false,
+                DocId = 123,
+                BirthDate = new DateTime(),
+                CreatedDate = new DateTime(),
+                Address = "address",
+                City = "city",
+                Zip = "123"
+            };
+
+            client.PasswordHash = ph.HashPassword(client, "client1");
+
+            modelBuilder.Entity<ApplicationUser>().HasData(client);
+            
 
             modelBuilder.Entity<Product>().HasData
                 (

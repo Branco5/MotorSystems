@@ -66,14 +66,4 @@ app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");
 
-//var certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-//certStore.Open(OpenFlags.ReadOnly);
-
-//var certCollection = certStore.Certificates.Find(
-//    X509FindType.FindByThumbprint, "0A00182E9C088105F7281D91E521934DC87FA70D", false);
-//var signingCertificate = certCollection[0];
-
-//certStore.Close();
-
-
 app.Run();

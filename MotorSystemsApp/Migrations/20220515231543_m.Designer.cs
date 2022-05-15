@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MotorSystemsApp.Data;
 
@@ -11,9 +12,10 @@ using MotorSystemsApp.Data;
 namespace MotorSystemsApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220515231543_m")]
+    partial class m
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -393,7 +395,7 @@ namespace MotorSystemsApp.Migrations
                             Address = "address",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             City = "city",
-                            ConcurrencyStamp = "712627f9-1649-4d9d-acaf-84eacfe63d9c",
+                            ConcurrencyStamp = "d977b456-fe8a-4735-8d81-66a90078b5ad",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DocId = 123,
                             Email = "admin@admin.com",
@@ -401,35 +403,12 @@ namespace MotorSystemsApp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHmz7FeBG2zKB0xl35aLZUGPQY8DHvtEZ5LsEWLMfNYAJcAbavVrvG61++G2c6rDhg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAKCYwtCvPzxc/x5LPHV2/aJxUHNm89Jz+lJoIDGG9QG0VP3h6BdQXSQUI1OQgHPAQ==",
                             PhoneNumber = "123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb2187df-ad61-4bb3-9c9c-54bfabaaa4b8",
+                            SecurityStamp = "6683fc49-b34f-4169-8544-79aae540cf14",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            Zip = "123"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            AccessFailedCount = 0,
-                            Address = "address",
-                            BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            City = "city",
-                            ConcurrencyStamp = "1949b55b-294d-4b6f-b20f-0a81b419d782",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DocId = 123,
-                            Email = "worker1@worker1.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "WORKER1@WORKER1.COM",
-                            NormalizedUserName = "WORKER1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKtgsQgRGXRLaMojl7ksx+J7QC4+qINCgG2KyoVKUsujTlBCPdLGU1NpvIqVm/3uTw==",
-                            PhoneNumber = "123456789",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "005d7f06-d644-4740-91c7-d5feaf4b3e78",
-                            TwoFactorEnabled = false,
-                            UserName = "worker1",
                             Zip = "123"
                         },
                         new
@@ -439,7 +418,7 @@ namespace MotorSystemsApp.Migrations
                             Address = "address",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             City = "city",
-                            ConcurrencyStamp = "a9392741-478b-494d-a437-a1ab87125066",
+                            ConcurrencyStamp = "9e46643f-2681-482b-8467-22e0898be496",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DocId = 123,
                             Email = "client1@client1.com",
@@ -447,10 +426,9 @@ namespace MotorSystemsApp.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT1@CLIENT1.COM",
                             NormalizedUserName = "CLIENT1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJDMw07KdaoW3yMGNdx9MjK2CM9wLp6UhnfEHA9q4VJ5IyjBZCjPgdGvUPBBwJ3x5g==",
                             PhoneNumber = "123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dabde750-c925-4238-af71-cabefb75b9eb",
+                            SecurityStamp = "964bbd8d-7922-4d40-a904-935ad6bb570b",
                             TwoFactorEnabled = false,
                             UserName = "client1",
                             Zip = "123"
