@@ -133,7 +133,6 @@ export class ProductDetailsComponent implements OnInit {
     this.prodService.getProduct(this.id).subscribe((product: Product) => {
       this.product = product
       this.removeProductQtdForm.controls["quantity"].addValidators(availableProductValidator(this.product.availableQuantity));
-      console.log(this.product);
     });
   }
 

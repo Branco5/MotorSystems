@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MotorSystemsApp.Data;
 using System.Net.Http.Headers;
+using Azure.Storage.Blobs;
+using System.ComponentModel;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -29,26 +31,45 @@ namespace MotorSystemsApp.Controllers
 
         // POST api/<ImagesController>
         //[HttpPost]
+
         [HttpPost, DisableRequestSizeLimit]
-        public IActionResult Upload()
+        public async Task<IActionResult> Upload()
         {
+            var blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=blobstoragemotorsystems;AccountKey=pjkq766wmogwzQRsSDS69ooRtLZMWemdBKDccYRgqEvw68U7EL0/7OYJ8ouLjdTUpefPzWa3XDhaOEqYEKglFA==;EndpointSuffix=core.windows.net";
+            var blobContainerName = "images";
+
+            var container = new BlobContainerClient(blobConnectionString, blobContainerName);
+
             try
             {
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine("assets", "images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), "ClientApp", "src", folderName);
+                var fileContent = Request.Form.Files["file"];
+                
+                var pathToSave = "https://blobstoragemotorsystems.blob.core.windows.net/images/";
 
-                if (file.Length > 0)
+                if (fileContent.Length > 0)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(pathToSave, fileName);
-                    var dbPath = Path.Combine(folderName, fileName);
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    var fileName = ContentDispositionHeaderValue.Parse(fileContent.ContentDisposition).FileName.Trim('"');
+
+                    var blob = container.GetBlobClient(fileName);
+
+                    var blobPath = pathToSave + fileName;
+
+                    
+                    var localStorePath = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+
+                    Directory.CreateDirectory(localStorePath);
+                    var filePath = Path.Combine(localStorePath, fileName);
+                    
+                    using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        file.CopyTo(stream);
+                        fileContent.CopyTo(stream);
                     }
-                    System.Diagnostics.Debug.WriteLine(dbPath);
-                    return Ok(new { dbPath });
+                    using (var stream = System.IO.File.OpenRead(filePath))
+                    {
+                        await blob.UploadAsync(stream);
+                    }
+
+                    return Ok(new { blobPath });
                 }
                 else
                 {
@@ -59,7 +80,8 @@ namespace MotorSystemsApp.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex}");
             }
-        }
+        }     
+        
 
         // PUT api/<ImagesController>/5
         [HttpPut("{id}")]

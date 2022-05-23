@@ -7,6 +7,7 @@ using MotorSystemsApp.Data;
 using MotorSystemsApp.Models;
 using MotorSystemsApp.Services;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,11 @@ builder.Services.AddTransient<IEmailSender, EmailSender>(i => new EmailSender(
     )
 );
 builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+builder.Services.AddAzureClients(clientBuilder =>
+{
+    clientBuilder.AddBlobServiceClient(builder.Configuration["Images:blob"], preferMsi: true);
+    clientBuilder.AddQueueServiceClient(builder.Configuration["Images:queue"], preferMsi: true);
+});
 
 var app = builder.Build();
 

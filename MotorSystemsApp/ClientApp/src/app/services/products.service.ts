@@ -34,7 +34,7 @@ export class ProductsService {
   }
 
   addProductNeeded(product: ProductNeeded) {
-    return this.http.post<ProductNeeded>(this.baseUrl + 'api/productsNeeded/', product);
+    return this.http.post<ProductNeeded>(this.baseUrl + 'api/productsNeeded', product);
   }
 
   deleteProductNeeded(id: number) {
@@ -42,7 +42,7 @@ export class ProductsService {
   }
 
   uploadProductImage(img: FormData) {
-    return this.http.post<FormData>(this.baseUrl + 'api/images/', img);
+    return this.http.post<FormData>(this.baseUrl + 'api/images', img);
   }
 }
 

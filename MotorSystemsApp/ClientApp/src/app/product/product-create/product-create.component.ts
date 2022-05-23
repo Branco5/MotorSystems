@@ -34,12 +34,12 @@ export class ProductCreateComponent implements OnInit {
     this.file = event.target.files[0];
   }
 
-  uploadFile(){
-    const formData = new FormData();
-    formData.append('file', this.file!, this.file!.name);
+  //uploadFile(){
+  //  const formData = new FormData();
+  //  formData.append('file', this.file!, this.file!.name);
 
-    this.service.uploadProductImage(formData).subscribe(res => {
-      console.log(res);
-    });
-  }
+  //  this.service.uploadProductImage(formData).subscribe(res => {
+  //    console.log(res);
+  //  });
+  //}
 }
