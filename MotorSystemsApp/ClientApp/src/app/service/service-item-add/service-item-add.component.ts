@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClientService } from '../../services/client.service';
 import { Product, ProductsService } from '../../services/products.service';
 import { Service, ServiceItem, ServiceItemItem, ServicesService } from '../../services/services.service';
 
@@ -13,14 +14,14 @@ export class ServiceItemAddComponent implements OnInit {
 
   public products: Product[] = [];
   public itemItems: ServiceItemItem[] = [];
-  public id: number | undefined;
+  public serviceId: number | undefined;
 
-  constructor(private servService: ServicesService, private prodService: ProductsService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private clientService: ClientService, private servService: ServicesService, private prodService: ProductsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.populateProducts();
-    this.id=this.route.snapshot.params['id'];
-    this.servService.getServiceItemItems(this.id!).subscribe()
+    this.serviceId=this.route.snapshot.params['id'];
+    //this.servService.getServiceItemItems(this.serviceId!).subscribe()
   }
 
   populateProducts() {
@@ -30,17 +31,28 @@ export class ServiceItemAddComponent implements OnInit {
 
   addToService(form: NgForm) {
     let item: ServiceItem = form.value;
-    item.serviceId = this.id!;
+    item.serviceId = this.serviceId!;
     this.servService.addServiceItem(item).subscribe(res => {
       let itemId = res.id;
       this.itemItems.forEach(ii => {
         ii.serviceItemId = itemId;
         ii.product = undefined;
         this.servService.addServiceItemItem(ii).subscribe(res => {          
-          this.router.navigateByUrl("services/" + this.id);
+          this.router.navigateByUrl("services/" + this.serviceId);
         });        
       })      
     });
+
+    console.log("NEXT");
+    this.servService.getService(item.serviceId).subscribe(service => {
+      this.clientService.getClient(service.client).subscribe(client => {
+        if (!client.serviceUpdated) {          
+          client.serviceUpdated = true;
+          console.log("SERVICE UPDATED", client.serviceUpdated);
+          this.clientService.updateClient(client).subscribe();
+        }        
+      })      
+    })
   }
 
   addItem(form: NgForm) {

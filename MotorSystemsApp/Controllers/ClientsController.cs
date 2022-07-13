@@ -30,10 +30,22 @@ namespace MotorSystemsApp.Controllers
         }
 
         // GET: api/Clients/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ApplicationUser>> GetClient(string id)
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<ApplicationUser>> GetClient(string id)
+        //{
+        //    var client = await _context.Users.FindAsync(id);
+
+        //    if (client == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return client;
+        //}
+        [HttpGet("{username}")]
+        public async Task<ActionResult<ApplicationUser>> GetClient(string username)
         {
-            var client = await _context.Users.FindAsync(id);
+            var client = _context.Users.FirstOrDefault<ApplicationUser>(user => user.UserName == username);
 
             if (client == null)
             {

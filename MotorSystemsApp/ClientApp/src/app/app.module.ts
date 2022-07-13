@@ -42,7 +42,7 @@ import { ServiceDetailsComponent } from './service/service-details/service-detai
 import { ServiceItemAddComponent } from './service/service-item-add/service-item-add.component';
 import { UserManagementComponent, UserManagementDialog } from './user-management/user-management.component';
 import { ServiceConcludedDialogComponent } from './service/service-concluded-dialog/service-concluded-dialog.component';
-
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -81,6 +81,7 @@ import { ServiceConcludedDialogComponent } from './service/service-concluded-dia
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
+    NgToastModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', component: ProductsComponent, canActivate: [WorkerGuard] },

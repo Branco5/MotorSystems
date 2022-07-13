@@ -58,7 +58,8 @@ namespace MotorSystemsApp.Data
                 CreatedDate = new DateTime(),
                 Address = "address",
                 City = "city",
-                Zip = "123"
+                Zip = "123",
+                ServiceUpdated = false
             };
 
             PasswordHasher<ApplicationUser> ph = new PasswordHasher<ApplicationUser>();
@@ -91,7 +92,8 @@ namespace MotorSystemsApp.Data
                 CreatedDate = new DateTime(),
                 Address = "address",
                 City = "city",
-                Zip = "123"
+                Zip = "123",
+                ServiceUpdated = false
             };
 
             worker.PasswordHash = ph.HashPassword(worker, "worker1");
@@ -123,7 +125,8 @@ namespace MotorSystemsApp.Data
                 CreatedDate = new DateTime(),
                 Address = "address",
                 City = "city",
-                Zip = "123"
+                Zip = "123",
+                ServiceUpdated = false
             };
 
             client.PasswordHash = ph.HashPassword(client, "client1");

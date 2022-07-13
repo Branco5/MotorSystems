@@ -16,5 +16,7 @@ namespace MotorSystemsApp.Models
         public string City { get; set; }
         [PersonalData]
         public string Zip { get; set; }
+
+        public bool ServiceUpdated { get; set; }
     }
 }

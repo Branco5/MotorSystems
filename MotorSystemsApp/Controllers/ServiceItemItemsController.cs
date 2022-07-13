@@ -22,14 +22,6 @@ namespace MotorSystemsApp.Controllers
             _context = context;
         }
 
-        // GET: api/ServiceItemItems
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ServiceItemItem>>> GetServiceItemItems()
-        {
-            return await _context.ServiceItemItem.ToListAsync();
-        }
-
-
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<ServiceItemItem>>> GetServiceItemItems(int serviceItemId)
         {
