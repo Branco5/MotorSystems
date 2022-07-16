@@ -4,6 +4,10 @@
       "type": "mssql",
       "connectionId": "ConnectionStrings:DefaultConnection"
     },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "MSAzureDBConnectionString"
+    },
     "appInsights1": {
       "type": "appInsights",
       "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
