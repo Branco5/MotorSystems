@@ -23,7 +23,8 @@ export class ProductCreateComponent implements OnInit {
     formData.append('file', this.file!, this.file!.name);
     this.service.uploadProductImage(formData).subscribe(res => {
       let prod: Product = productForm.value;
-      prod.imgUrl = "/assets/images/" + this.file!.name;
+     // prod.imgUrl = "/assets/images/" + this.file!.name;
+      prod.imgUrl = "https://motorsystemsappstorage.blob.core.windows.net/images/" + this.file!.name;
       this.service.createProduct(prod).subscribe(res => {
         this.router.navigateByUrl("products");
       });

@@ -8,13 +8,17 @@
       "type": "mssql",
       "connectionId": "MSAzureDBConnectionString"
     },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "Images"
+    },
     "appInsights1": {
       "type": "appInsights",
       "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
     },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "Images"
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:MSAzureDBConnectionString"
     }
   }
 }

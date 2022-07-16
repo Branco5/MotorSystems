@@ -35,7 +35,7 @@ namespace MotorSystemsApp.Controllers
         [HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> Upload()
         {
-            var blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=blobstoragemotorsystems;AccountKey=pjkq766wmogwzQRsSDS69ooRtLZMWemdBKDccYRgqEvw68U7EL0/7OYJ8ouLjdTUpefPzWa3XDhaOEqYEKglFA==;EndpointSuffix=core.windows.net";
+            var blobConnectionString = "DefaultEndpointsProtocol=https;AccountName=motorsystemsappstorage;AccountKey=hl24w7uNaTg22R4LJcMzdzWYt6GUK+r78Dqu711VjSQFQWHV32KT7uGfXSUFx3fpZa9L+rd4n5iS+ASt6KrkiA==;EndpointSuffix=core.windows.net";
             var blobContainerName = "images";
 
             var container = new BlobContainerClient(blobConnectionString, blobContainerName);
