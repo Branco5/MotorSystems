@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotorSystemsApp", "MotorSystemsApp\MotorSystemsApp.csproj", "{D7677AED-F29D-4D01-A5FC-42DCA17048E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorSystemsTest", "MotorSystemsTest\MotorSystemsTest.csproj", "{23F9388A-F197-41F5-BFCE-7E45BEF6315D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotorSystemsTest", "MotorSystemsTest\MotorSystemsTest.csproj", "{23F9388A-F197-41F5-BFCE-7E45BEF6315D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{44748367-D0E7-4CC5-B925-919D3BE54F66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{23F9388A-F197-41F5-BFCE-7E45BEF6315D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F9388A-F197-41F5-BFCE-7E45BEF6315D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F9388A-F197-41F5-BFCE-7E45BEF6315D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44748367-D0E7-4CC5-B925-919D3BE54F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44748367-D0E7-4CC5-B925-919D3BE54F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44748367-D0E7-4CC5-B925-919D3BE54F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44748367-D0E7-4CC5-B925-919D3BE54F66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

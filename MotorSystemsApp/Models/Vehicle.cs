@@ -13,7 +13,7 @@ namespace MotorSystemsApp.Models
         public VehicleType Type { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-        public string Client { get; set; }      
+        public string? Client { get; set; }      
     }
 
     public enum VehicleType
