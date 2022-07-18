@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Worker Stats</h1>
+
+<p *ngIf="!tableItems"><em>Loading...</em></p>
+
+<table class='table' aria-labelledby="tableLabel" *ngIf="tableItems">
+  <thead>
+    <tr>
+      <th>Worker</th>
+      <th>Most common service type</th>
+      <th>Ongoing Services</th>
+      <th>Finished Services</th>
+      <th>Cancelled Services</th>
+      <th>Total Services</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of tableItems">
+      <td>{{ item.worker }}</td>
+      <td>{{ item.mostCommonServiceType }}</td>
+      <td>{{ item.numberOfServicesProcessing }}</td>
+      <td>{{ item.numberOfServicesFinished }}</td>
+      <td>{{ item.numberOfServicesCancelled }}</td>
+      <td>{{ item.numberOfServices }}</td>
+    </tr>
+  </tbody>
+</table>

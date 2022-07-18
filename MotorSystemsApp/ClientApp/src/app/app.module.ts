@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -43,6 +45,7 @@ import { ServiceItemAddComponent } from './service/service-item-add/service-item
 import { UserManagementComponent, UserManagementDialog } from './user-management/user-management.component';
 import { ServiceConcludedDialogComponent } from './service/service-concluded-dialog/service-concluded-dialog.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,7 @@ import { NgToastModule } from 'ng-angular-popup';
     UserManagementComponent,
     UserManagementDialog,
     ServiceConcludedDialogComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -82,6 +86,7 @@ import { NgToastModule } from 'ng-angular-popup';
     MatIconModule,
     BrowserAnimationsModule,
     NgToastModule,
+    NgxChartsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'products', component: ProductsComponent, canActivate: [WorkerGuard] },
@@ -100,6 +105,8 @@ import { NgToastModule } from 'ng-angular-popup';
       { path: 'user-management', component: UserManagementComponent, canActivate: [AdminGuard] },
       { path: 'services/:id', component: ServiceDetailsComponent, canActivate: [AuthorizeGuard] },
       { path: 'service-item-add/:id', component: ServiceItemAddComponent, canActivate: [WorkerGuard] },
+      { path: 'stats', component: StatsComponent, canActivate: [WorkerGuard] },
+
     ]),
   ],
   providers: [

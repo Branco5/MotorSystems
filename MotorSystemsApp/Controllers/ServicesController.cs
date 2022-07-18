@@ -69,6 +69,7 @@ namespace MotorSystemsApp.Controllers
 
             return services;
         }
+
         [HttpGet("servicesByClient/{username}")]
         public async Task<ActionResult<List<Service>>> GetServicesByClient(string username)
         {
